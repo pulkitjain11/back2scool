@@ -7,42 +7,59 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="/css/navbar.css" />
     <title>Back To School</title>
-    <link rel="stylesheet" type="text/css" href="gravitas.css">
+    <link rel="stylesheet" type="text/css" href="css/gravitas.css">
   </head>
   <body>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light ">
-      <a class="navbar-brand" href="#">
-          <img class="img-fluid" src="B2S_Logo.png" alt="" style="width: 5rem;">
-        </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active stro">
-        <a class="nav-link" href="/mathbee" style="color: white; text-shadow: 3px 3px #000000;">MATHBEE<span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item active stro">
-        <a class="nav-link" href="/spellbee" style="color: white; text-shadow: 3px 3px #000000;">SPELLBEE<span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item active stro">
-        <a class="nav-link" href="/about" style="color: white; text-shadow: 3px 3px #000000;">ABOUT US </a>
-      </li>
-       <li class="nav-item active stro">
-        <a class="nav-link" href="/contact" style="color: white; text-shadow: 3px 3px #000000;">CONTACT US </a>
-      </li>
-	</ul>
-	    <a class="navbar-brand" href="#">
-          <img class="img-fluid" src="graVITas20 Logo.png" alt="" style="width: 15rem;">
-        </a>
-  </div>
-	</nav>
- </div>
- <div>
- <%- include('slider'); -%>
+
+  <nav>
+  <div class="navbar">
+    <div class="laptop">
+        <ul class="nav-links">
+          <li>
+            <a href="/"> <img  src="B2S_Logo.png" class="b2s-logo" /></a>
+               
+            </li>
+            &emsp;&emsp;&emsp;&emsp;
+          <li><a href="/login">Login</a> </li>
+            <li><a href="/about">About Us</a></li>
+            <li><a class="contactUS" onclick="scroll_contact()" type="button">Contact Us </a> </li>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <li>
+              <a href="http://gravitas.ac.in">
+               <img src="graVITas20 Logo.png" class="gra-logo" />
+              </a> 
+            </li>
+        </ul>
+      </div>
+      <div class="mobile">
+        <div class="mobile-nav">
+          <div id="mobile-gra-logo">
+              <img src="graVITas20 Logo.png" class="gra-logo" />
+            
+          </div>
+          <div class="burger" id="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+       </div>
+        <div class="menu hidden" id="menu">
+          <ul class="menu-links" id="menu-links">
+            <hr style="margin: -10px 0 0 0;">
+            <li><a href="/login">Login</a> </li><hr>
+            <li><a href="/about">About Us</a></li><hr>
+            <li><a class="contactUS" onclick="scroll_contact()" type="button">Contact Us</a> </li><hr>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- <div> -->
+    <!-- <%- include('navbar'); -%> -->
+<!-- </div>  -->
+  <div class="carousel">
+    <%- include('carousel'); -%>
 </div>
 <div class="container">
 	<h1 id="head"><img class="img-fluid" src="B2S_Logo.png" alt="" style="width: 10rem;"></h1>
@@ -55,7 +72,7 @@
 </div>
 <br>
 <br>
-<div class="container">
+<div class="container cards">
  <div class="row justify-content-between">
    <div class="col-md-6 col-12 mb-md-0 mb-4 ">
      <div class="yes">
@@ -80,10 +97,31 @@
  </div> 
 
 </div>
+<div id="contact">
+  <%- include('footer'); -%>
+</div>
+<script>
+  var burger = document.getElementById("burger");
+var menu = document.getElementById("menu");
+
+burger.addEventListener("click", () => {
+$("#menu").slideToggle("medium");
+menu.classList.toggle("hidden");
+
+burger.classList.toggle('toggle');
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>var contact=document.getElementById("contact");
+  function scroll_contact()
+  {contact.scrollIntoView({behavior: "smooth"});
+  }</script>
 
 
-
-
+<script>var contact=document.getElementById("contact");
+  function scroll_contact()
+  {contact.scrollIntoView({behavior: "smooth"});
+  }</script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
